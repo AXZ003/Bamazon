@@ -4,8 +4,11 @@
   "description": "SQL Project",
   "main": "index.js",
   "dependencies": {
+    "chalk": "^2.4.1",
+    "cli-table": "^0.3.1",
     "inquirer": "^5.2.0",
-    "mysql": "^2.15.0"
+    "mysql": "^2.15.0",
+    "sql": "^0.78.0"
   },
   "devDependencies": {},
   "scripts": {
