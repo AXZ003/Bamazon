@@ -74,9 +74,9 @@ function startUp() {
               }); 
 
             } else {
-              console.log(response)
+              // console.log(response)
                 console.log(chalk.magenta('Not enough items in stock.'));
-                process.exit();
+                // process.exit();
                 fail();
                 } 
         })
@@ -96,7 +96,7 @@ function yaas() {
             
            }
     ]).then(function (answer) {
-      console.log(answer);
+      // console.log(answer);
                switch (answer.YAAS) {
                   case true:
                       runTable();
@@ -125,7 +125,7 @@ function fail() {
 
             case "Come back later":
                 console.log(chalk.yellowBright("See ya!"))
-                process.exit();
+                // process.exit();
                 break;
           }
       })
