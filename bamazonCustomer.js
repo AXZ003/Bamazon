@@ -33,7 +33,7 @@ connection.connect(function(err) {
     table.push([response[i].item_id, response[i].department_name, response[i].product_name, response[i].price, response[i].stock_quantity])
     }
     console.log(table.toString());
-      startUp();
+    startUp();
   
   })
 });
@@ -70,9 +70,9 @@ function startUp() {
               connection.query('UPDATE products SET ? WHERE ?', [{stock_quantity: updateQuantity}, 
                 {item_id: response.itemID}], function(err,rows,fields) {
                 if (err) throw err;
-                  
-
+                yaas();
               }); 
+
             } else {
               console.log(response)
                 console.log(chalk.magenta('Not enough items in stock.'));
@@ -86,18 +86,22 @@ function startUp() {
 } 
 
 function yaas() {
-  runTable();
+  // runTable();
   inquirer
     .prompt([
            {name: "YAAS",
             type: "confirm",
-            message: "Would you like to make another purchase?"
+            message: "Would you like to make another purchase?",
+            default: true,
+            
            }
     ]).then(function (answer) {
-               switch (answer.confirm) {
+      console.log(answer);
+               switch (answer.YAAS) {
                   case true:
-                      // runTable();
+                      runTable();
                       break;
+                  
                   case false:
                   console.log(chalk.yellowBright("See ya!"))
                       process.exit();
@@ -142,7 +146,7 @@ function runTable() {
     table.push([response[i].item_id, response[i].department_name, response[i].product_name, response[i].price, response[i].stock_quantity])
     }
     console.log(table.toString());
-      // startUp();
+      startUp();
   
   })
 }
